@@ -39,8 +39,8 @@ export default function createModelSchema<T extends object>(
         targetClass: clazz,
         factory:
             factory ||
-            function () {
-                return new clazz();
+            function (context) {
+                return new clazz(context);
             },
         props: props,
     };

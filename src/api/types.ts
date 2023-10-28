@@ -92,7 +92,8 @@ export interface ModelSchema<T> {
     discriminator?: DiscriminatorSpec;
 }
 
-export type Clazz<T> = new (...args: any[]) => T;
+export type Clazz<T> = { new(...args: any[]): T}
+// export type Clazz<T> = new (...args: any[]) => T;
 export type ClazzOrModelSchema<T> = ModelSchema<T> | Clazz<T>;
 
 export type RefLookupFunction = (
@@ -101,3 +102,4 @@ export type RefLookupFunction = (
     context: Context
 ) => void;
 export type RegisterFunction = (id: any, object: any, context: Context) => void;
+export type { Context }
