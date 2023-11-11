@@ -40,7 +40,7 @@ import { invariant, isPropSchema, isRegExp } from "../utils/utils";
  * store.somethingElse = 5
  * serialize(store) // { a: {x: 1, y: 2}, b: { x: undefined, y: undefined } }
  */
-export default function serializeAll<T>(clazz: Clazz<T>): Clazz<T>;
+export default function serializeAll<T>(clazz: Clazz<T>): any;
 export default function serializeAll(
     pattern: RegExp,
     propertyType: PropDef | Clazz<any>
