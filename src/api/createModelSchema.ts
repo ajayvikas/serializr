@@ -47,7 +47,7 @@ export default function createModelSchema<T extends object>(
     // find super model
     if (clazz.prototype.constructor !== Object) {
         const s = getDefaultModelSchema(clazz.prototype.constructor);
-        if (s && s.targetClass !== clazz) model.extends = s;
+        if (s && s.targetClass !== clazz) { model.extends = s; model.props = {...s.props, ...model.props}; }
     }
     setDefaultModelSchema(clazz, model);
     return model;
